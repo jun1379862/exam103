@@ -1,0 +1,21 @@
+@media (max-width: 767px) {
+    .title-lbl{
+        font-size: 25px;
+        padding: 0px;
+        text-align: center;
+    }
+    .main-content{
+        padding: 0 20px;
+        margin: auto;
+        max-width: 500px;
+    }
+    .main-content input{
+        width: 100%;
+    }
+    .suf-con{
+        text-align: center;
+    }
+    .registr{
+        width: 100%;
+    }
+}

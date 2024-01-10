@@ -2,57 +2,129 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Landing Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tesler - Trading System App for Investments 📲</title>
+    <link rel="icon" href="./favicon.png">
     <style>
     /* Critical CSS styles */
-    body {
-        font-family: Arial, sans-serif;
-        /* ... other critical styles ... */
+    * {
+        box-sizing: border-box;
+        user-select: none;
     }
-    /* ... more critical styles ... */
-    </style>
-    <script>
-    function loadCSS(url) {
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = url;
-        document.head.appendChild(link);
+    body{
+        background-color: #000;
+        color: #fff;
+        margin: 0;
     }
 
-    // Load non-critical CSS after the page has loaded
-    window.onload = function() {
-        loadCSS('./base.css');
-    };
+    header {
+        background-color: #121212;
+        text-align: center;
+    }
+    header img{
+        display: block;
+        margin: auto;
+    }
+    header .header-logo-container{
+        padding-top: 20px;
+        padding-bottom: 20px;
+        box-shadow: 0 0 14px rgb(0 0 0 / 40%);
+    }
+    header .header-logo-container h1{
+        color: #fff;
+        margin: 0;
+        font-size: 24px;
+        line-height: 39.6px;
+    }
+    .main-content{
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        padding-top: 120px;
+        padding-bottom: 120px;
+        /* flex-direction: column; */
+    }
+    footer {
+        text-align: center;
+        font-size: 12px;
+    }
+    @media (max-width: 768px) {
+        .title-lbl{
+            padding: 0px;
+        }
+        header {
+            padding: 10px; 
+        }
+        .main-content {
+            flex-direction: column; 
+            padding: 0px;
+        }
+        .inputfiled {
+            width: calc(100% - 20px);
+            margin-bottom: 10px;
+        }
+        footer {
+            padding: 10px;
+        }
+    }
+    </style>
+    <script>
+        function loadCSS(url) {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = url;
+            document.head.appendChild(link);
+        }
+
+        //this is to load non-critical CSS after the page has loaded
+        window.onload = function() {
+            loadCSS('./base.css');
+            loadCSS('./checkbox.css');
+            loadCSS('./mobile.css');
+        };
     </script>
 </head>
 <body>
+    <header class="header">
+        <div class="header-logo-container">
+            <img width="45px" height="40px" src="./logo.png" alt="Logo">
+            <h1>TESLER</h1>
+        </div>
+    </header>
     <div class="main-content">
-        <h1>Sign Up</h1>
+        <h1 class="title-lbl">
+            You are one step closer
+            <br>
+            to future!
+        </h1>
         <form id="signupForm">
-            <label for="fname">First Name:</label>
-            <input type="text" id="fname" name="fname" required><br><br>
+            <input class="inputfiled" type="text" id="fname" name="fname" placeholder="First Name" required><br><br>
+            <input class="inputfiled" type="text" id="lname" name="lname" placeholder="Last Name" required><br><br>
+            <input class="inputfiled" type="email" id="email" name="email" placeholder="Email Address" required><br><br>
+            <input class="inputfiled" type="tel" id="phone" name="phone" placeholder="Phone Number" required><br>
+            <input id='agree' type='checkbox' name="agree" />
+            <label for='agree' class="chk">
+              <span></span>
+              I agree to the terms and conditions
+            </label>
+            <div class="suf-con">
+                <button class="registr " type="submit">
+                    <span class="button-text">Sign Up</span>
+                    <div class="loader"></div>
+                </button>
+            </div>
 
-            <label for="lname">Last Name:</label>
-            <input type="text" id="lname" name="lname" required><br><br>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br><br>
-
-            <label for="phone">Phone:</label>
-            <input type="tel" id="phone" name="phone" required><br><br>
-
-            <input type="checkbox" id="agree" name="agree" required>
-            <label for="agree">I agree to the terms and conditions</label><br><br>
-
-            <button type="submit">Sign Up</button>
         </form>
     </div>
     <div id="successModal" class="modal">
         <div class="modal-content">
           <span class="close">&times;</span>
-          <p>Signup successful!</p>
+          <p class="msgmodal">Signup successful!</p>
         </div>
-      </div>
+    </div>
+    <footer>
+        <p>"Image(s) used under explaration purposes. All rights belong to their respective owners. No commercial use intended."</p>
+    </footer>
     <script src="./script.js"></script>
 </body>
 </html>
