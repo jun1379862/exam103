@@ -1,11 +1,11 @@
 const form = document.getElementById('signupForm');
 const modal = document.getElementById('successModal');
 const modalTextDiv = document.getElementsByClassName('msgmodal');
+const loader = document.querySelector('.loader');
+const buttonText = document.querySelector('.button-text');
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  const loader = document.querySelector('.loader');
-  const buttonText = document.querySelector('.button-text');
 
   const fname = document.getElementById('fname');
   const lname = document.getElementById('lname');
@@ -36,6 +36,8 @@ form.addEventListener('submit', (event) => {
     modalTextDiv[0].textContent = 'Please agree to the terms and conditions';
     modal.style.display = 'block';
     isValid = false;
+    loader.style.display = 'none';
+    buttonText.style.display = 'inline';
   }
 
   if (isValid) {
@@ -46,9 +48,11 @@ form.addEventListener('submit', (event) => {
         modal.style.display = 'block'; 
       })
       .catch(() => {
+        console.log('------FAIL')
         loader.style.display = 'none';
         buttonText.style.display = 'inline';
         modalTextDiv[0].textContent = 'Error submitting form. Please try again.';
+        modal.style.display = 'block';
       });
   }
 });
@@ -56,15 +60,20 @@ form.addEventListener('submit', (event) => {
 const mockAPI = (fname, lname, email, phone, agree) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const success = Math.random() < 0.7; // 80% success rate
+      const success = Math.random() < 0.3; // 80% success rate
       if (success) {
         resolve();
       } else {
-        reject(new Error('Signup failed. Please try again later.'));
+        modalTextDiv[0].textContent = 'Error submitting form. Please try again.';
+        modal.style.display = 'block';
+        loader.style.display = 'none';
+        buttonText.style.display = 'inline';
       }
     }, 1000); // Simulating a delay of 1 second
   });
 };
+
+
 
 // Event listener to allow only numeric input for phone field
 const phoneInput = document.getElementById('phone');
