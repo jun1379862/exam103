@@ -8,9 +8,6 @@
     footer {
         padding: 10px;
     }
-    .main-content{
-        background-image: url("./ bg1-mobile");
-    }
 }
 
 @media (max-width: 767px) {
@@ -19,18 +16,7 @@
         padding: 0px;
         text-align: center;
     }
-    .main-content{
-        padding: 0 20px;
-        margin: auto;
-        max-width: 500px;
-    }
     .main-content input{
-        width: 100%;
-    }
-    .suf-con{
-        text-align: center;
-    }
-    .registr{
         width: 100%;
     }
 }
