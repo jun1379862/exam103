@@ -60,11 +60,32 @@ form.addEventListener('submit', (event) => {
 const mockAPI = (fname, lname, email, phone, agree) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const success = Math.random() < 0.3; // 80% success rate
+      const success = Math.random() < 0.6; // 80% success rate
       if (success) {
+        const successData = {
+          success: true,
+          message: 'Form submitted successfully!',
+          // Additional data if needed
+          user: {
+            fname,
+            lname,
+            email,
+            phone,
+            agree,
+          },
+        };
+        console.log('-- Sucess-- '); // Log success JSON data
+        console.log(JSON.stringify(successData)); // Log success JSON data
         resolve();
       } else {
+        const errorData = {
+          success: false,
+          message: 'Error submitting form. Please try again.',
+        };
+        console.log('-- Fail --'); 
+        console.log(JSON.stringify(errorData)); 
         modalTextDiv[0].textContent = 'Error submitting form. Please try again.';
+        reject(errorData);
         modal.style.display = 'block';
         loader.style.display = 'none';
         buttonText.style.display = 'inline';

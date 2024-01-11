@@ -2,14 +2,63 @@
   font-family: workSansBold;
   src: url('./HarmonyOS_Sans_Medium.ttf');
 }
+/* Critical CSS styles to be loaded AGAIN */
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+body{
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+}
+
+header {
+  background-color: #121212;
+  text-align: center;
+}
+header img{
+  display: block;
+  margin: auto;
+}
+header .header-logo-container{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  box-shadow: 0 0 14px rgb(0 0 0 / 40%);
+}
+header .header-logo-container h1{
+  color: #fff;
+  margin: 0;
+  font-size: 24px;
+  line-height: 39.6px;
+}
+.main-content{
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  padding-top: 120px;
+  padding-bottom: 120px;
+  /* flex-direction: column; */
+}
+footer {
+  text-align: center;
+  font-size: 12px;
+}
+/*  end ofCritical CSS styles */
+
 body{
   font-family: workSansBold;
 }
 
 .main-content{
-  background-image: url("./bg1.jpeg");
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+@media (min-width: 769px) {
+  .main-content{
+    background-image: url("./bg1.jpeg");
+  }
 }
 .main-content input{
   border-radius: 4px;
