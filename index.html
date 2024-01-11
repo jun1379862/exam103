@@ -6,7 +6,48 @@
     <title>Tesler - Trading System App for Investments 📲</title>
     <link rel="icon" href="./favicon.png">
     <style>
-    
+    /* Critical CSS styles */
+    * {
+        box-sizing: border-box;
+        user-select: none;
+    }
+    body{
+        background-color: #000;
+        color: #fff;
+        margin: 0;
+    }
+
+    header {
+        background-color: #121212;
+        text-align: center;
+    }
+    header img{
+        display: block;
+        margin: auto;
+    }
+    header .header-logo-container{
+        padding-top: 20px;
+        padding-bottom: 20px;
+        box-shadow: 0 0 14px rgb(0 0 0 / 40%);
+    }
+    header .header-logo-container h1{
+        color: #fff;
+        margin: 0;
+        font-size: 24px;
+        line-height: 39.6px;
+    }
+    .main-content{
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        padding-top: 120px;
+        padding-bottom: 120px;
+        /* flex-direction: column; */
+    }
+    footer {
+        text-align: center;
+        font-size: 12px;
+    }
     @media (max-width: 768px) {
         .main-content {
             flex-direction: column; 
